@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Trainers</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Manage Trainers</h2>
+
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Expertise</th>
+                    <th scope="col" class="text-start">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% trainers.forEach(trainer => { %>
+                    <tr>
+                        <td><%= trainer.name %></td>
+                        <td><%= trainer.expertise %></td>
+                        <td>
+                
+                            <form action="/admin/manage-trainers" method="post" style="display: inline;">
+                                <input type="hidden" name="action" value="delete">
+                                <input type="hidden" name="trainerId" value="<%= trainer._id %>">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <form action="/admin/manage-trainers" method="post">
+                                <input type="hidden" name="action" value="update">
+                                <input type="hidden" name="trainerId" value="<%= trainer._id %>">
+                                <div class="mb-3">
+                                    <label for="updateName" class="form-label">Update Name</label>
+                                    <input type="text" class="form-control" id="updateName" name="updateName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="updateExpertise" class="form-label">Update Expertise</label>
+                                    <input type="text" class="form-control" id="updateExpertise" name="updateExpertise" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update Trainer</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        
+        <!-- Section for adding a new trainer -->
+        <div class="card mt-3 p-3">
+            <h3 class="text-center">Add New Trainer</h3>
+            
+            <form action="/admin/manage-trainers" method="post">
+                <input type="hidden" name="action" value="create">
+                <div class="mb-3">
+                    <label for="trainerName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="trainerName" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="trainerExpertise" class="form-label">Expertise</label>
+                    <input type="text" class="form-control" id="trainerExpertise" name="expertise" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Trainer</button>
+            </form>
+        </div>
+        
+        <!-- Back to dashboard link -->
+        <div class="text-center mt-4">
+            <a href="/admin/dashboard" class="btn btn-primary btn-dashed">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"/>
+                </svg> Back to Dashboard
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<style>
+  
+  #logoutBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+</style>
+
+<body>
+  <a href="/login" class="btn btn-danger" id="logoutBtn">Logout</a>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header text-center">
+                <h5>Welcome!</h5>
+              </div>
+              <div class="card-body">
+                <p class="card-text text-center">Please choose an option:</p>
+      
+                <div class="row justify-content-center">
+                  <!-- Product/Service Reservation -->
+                  <div class="col-md-4 mb-3">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <h6 class="card-title">Reservation</h6>
+                        <a href="/reservation" class="btn btn-primary">Go</a>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <!-- Booking History -->
+                  <div class="col-md-4 mb-3">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <h6 class="card-title">Booking History</h6>
+                        <a href="/user/reservations" class="btn btn-primary">Go</a>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <!-- News/Announcements -->
+                  <div class="col-md-4 mb-3">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <h6 class="card-title">Announcements</h6>
+                        <a href="/announcements" class="btn btn-primary">Go</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</body>
+
+</html>

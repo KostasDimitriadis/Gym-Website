@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container mt-5">
+
+    <!-- User List Section -->
+    <h2 class="mb-4">User Management</h2>
+    <ul class="list-group mb-4">
+        <!-- Iterate through users and display details with Read and Delete options -->
+        <% users.forEach(user => { %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <%= user.username %> - <%= user.role %>
+                <span class="btn-group">
+                    <!-- Link to view user details -->
+                    <a href="/admin/view-user/<%= user._id %>" class="btn btn-primary btn-sm">Read</a>
+                    
+                    <!-- Form for deleting user -->
+                    <form action="/admin/manage-users" method="post" class="ms-2">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="hidden" name="userId" value="<%= user._id %>">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </span>
+            </li>
+        <% }); %>
+    </ul>
+
+    <!-- Create New User Section -->
+    <h2>Create New User</h2>
+    <form action="/admin/manage-users" method="post" class="mb-4">
+        <input type="hidden" name="action" value="create">
+
+        <!-- User details input fields -->
+        <div class="mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" id="username" name="username" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="surname" class="form-label">Surname:</label>
+            <input type="text" id="surname" name="surname" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="country" class="form-label">Country:</label>
+            <input type="text" id="country" name="country" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="city" class="form-label">City:</label>
+            <input type="text" id="city" name="city" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="adress" class="form-label">Adress:</label>
+            <input type="text" id="adress" name="adress" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="telephone" class="form-label">Telephone:</label>
+            <input type="text" id="telephone" name="telephone" class="form-control" required>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="registrationStatus" class="form-label">Registration Status:</label>
+            <select id="registrationStatus" name="registrationStatus" class="form-select" required>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="denied">Denied</option>
+            </select>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="role" class="form-label">Role:</label>
+            <select id="role" name="role" class="form-select" required>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary">Create User</button>
+    </form>
+
+    <!-- Back to Dashboard Link -->
+    <div class="text-center mt-4">
+        <a href="/admin/dashboard" class="btn btn-primary btn-dashed">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"/>
+            </svg> Back to Dashboard
+        </a>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

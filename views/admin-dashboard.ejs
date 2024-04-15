@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add your custom styles here */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        .navbar-light .navbar-toggler-icon {
+            background-color: #007bff;
+        }
+
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+
+        .list-group-item {
+            border-color: #007bff;
+            color: #007bff;
+        }
+
+        .list-group-item:hover {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<style>
+  
+    #logoutBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+    }
+  </style>
+  
+
+<body>
+    <a href="/login" class="btn btn-danger" id="logoutBtn">Logout</a>
+
+   
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <h2>Welcome to the Admin Dashboard</h2>
+                </div>
+
+                <div class="list-group">
+                    <a href="/admin/manage-registration-requests" class="list-group-item list-group-item-action">View Pending Registration Requests</a>
+                    <a href="/admin/manage-users" class="list-group-item list-group-item-action">Manage Users</a>
+                    <a href="/admin/create-announcement" class="list-group-item list-group-item-action">Create Announcement</a>
+                    <a href="/admin/manage-announcements" class="list-group-item list-group-item-action">Manage Announcements</a>
+                    <a href="/admin/manage-trainers" class="list-group-item list-group-item-action">Manage Trainers </a>
+                    <a href="/admin/manage-programs" class="list-group-item list-group-item-action">Manage Programs </a>
+                    <a href="/admin/manage-schedules" class="list-group-item list-group-item-action">Manage Schedules</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+</body>
+
+</html>
